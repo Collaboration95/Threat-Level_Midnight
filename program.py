@@ -44,8 +44,8 @@ def Routing_function(N:int)->None:
     elif N==3:
         pass
     else:
-        if(input("Enter anything if you do not want to exit this godawful game")):
-            exit()
+        if(input("Enter anything if you do not want to exit this godawful game")==""):
+            exit("Reality is often disappointing")
         else:
             # This line rescursively calls the routing function with the output of the Show_And_Get_Option function
             Routing_function(Show_And_Get_Options)
