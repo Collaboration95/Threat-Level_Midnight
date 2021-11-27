@@ -35,6 +35,20 @@ def Read_Scores():
         f.write("Nothing Here yet folks")
         f.close()
 
+def Routing_function(N:int)->None:
+    # This function is to route the functions and the correct options 
+    if N==1:
+        pass
+    elif N==2:
+        Read_Scores()
+    elif N==3:
+        pass
+    else:
+        if(input("Enter anything if you do not want to exit this godawful game")):
+            exit()
+        else:
+            # This line rescursively calls the routing function with the output of the Show_And_Get_Option function
+            Routing_function(Show_And_Get_Options)
 
 def Main():
     # This is the first function that gets called , it provides the options
@@ -46,10 +60,10 @@ def Main():
     
     # Gets option input
     N = Show_And_Get_Options()
-    print("This is your option {}".format(N))
 
-    Read_Scores()
-    
+    # Calls the routing function to get routed to the appropriate function
+    Routing_function(N)
+
 options = dict()
 options =   {1:"New Games",2:"See Scores",3:"Admin (Top-secrety stuff)",4:"Crawl under a rock for eternity"}
 
