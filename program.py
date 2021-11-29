@@ -21,8 +21,8 @@ def Read_Scores():
     #It is located under 2.0 in the menu
 
     # This function checks for file path and reads scores from file path
-    if (os.path.isfile("CDTASSIGNMENT/users.txt")):
-            with open('CDTASSIGNMENT/users.txt') as f: 
+    if (os.path.isfile("users.txt")):
+            with open('users.txt') as f: 
                 for i in f:
                     print(i)
             f.close()
@@ -30,9 +30,9 @@ def Read_Scores():
 
     # If file does not exit , this else block creates a file and writes an empty message in it
     else:
-
-        f= open("CDTASSIGNMENT/users.txt","w+")
-        f.write("Nothing Here yet folks")
+        print("Nothing Here yet folks")
+        f= open("users.txt","w+")
+        f.write("-------Nothing Here yet folks-------")
         f.close()
 
 def Routing_function(N:int)->None:
