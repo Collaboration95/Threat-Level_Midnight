@@ -35,6 +35,35 @@ def Read_Scores():
         f.write("-------Nothing Here yet folks-------")
         f.close()
 
+def Check_Password():
+    # The Below block of code checks for the correct password and locks the user  
+    # if password is twice in a row
+
+    # For password , see variable below ( like wayy below) 
+    k = int(input("Please enter the password"))
+    if (k != Password):
+        k = int(input("Please enter the password , YOU MORON"))
+        if (k!=Password):
+            while True:
+                # Locks the user/Dumb Admin in an infinite loop
+                print("are you sure you are supposed to be here")
+
+
+def Admin_Controls():
+    #This is the function for the admin controls
+    
+    # This function checks the password ( Only admins are allowed to access this )
+    Check_Password()
+
+    print("Now you have root access , which in this case gives you access to a wide variety of admin only tools like the illusion of choice")
+    
+    # Notes by the programmer to the programmer:
+    # Create a function to rank players by their highscores
+    # Create another fucntion to output all the scores of a particular function
+
+
+
+
 def Routing_function(N:int)->None:
     # This function is to route the functions and the correct options 
     if N==1:
@@ -66,7 +95,7 @@ def Main():
 
 options = dict()
 options =   {1:"New Games",2:"See Scores",3:"Admin (Top-secrety stuff)",4:"Crawl under a rock for eternity"}
-
+Password = 3200
 
 # This calls the main function indefinitely 
 while True:
