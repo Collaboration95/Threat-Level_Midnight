@@ -83,9 +83,37 @@ def Reset_Scores() ->None:
     f.write("")
     f.close()
     print("----All data has been reset , have a nonconsequential day-----")
-    return None
-    
+    return None    
 
+def List_Players():
+    # Opening the file and loading all the text into a list
+    with open ("users.txt", "r") as f:
+        Text_Container = f.readlines()
+    # Stripping the endline character
+    for i in range(len(Text_Container)):
+        Text_Container[i]=Text_Container[i].strip('\n')
+    if len(Text_Container)<4:
+        print("\n---No Data has been entered----\n")
+        return None
+    #Creating a new list with text starting from the 4th line of the text file
+    L =Text_Container[3:]
+    # Initializing the list which is going to contain the player names
+    Player_Names = []
+
+    # Using the split function to everyline into player name and scores , and appending player name to a new list
+    for i in range(len(L)):
+        Name_Score = L[i].split()
+        Player_Names.append(Name_Score[0])
+
+    # Converting the list into set to destroy duplicate elements and converting back into list
+    Player_Names = list(set(Player_Names))
+
+    # finding no of players by the length of the list 
+    print("The number of players is {}".format(len(Player_Names)))
+    # Printing the list (Player Names)
+    print("The players are:")
+    for i in range(len(Player_Names)):
+        print("{} : {}".format(i+1,Player_Names[i]))
 
 def Routing_function_Admin_Controls(N:int)->None:
     # This function is to route the functions and the correct options 
@@ -93,8 +121,10 @@ def Routing_function_Admin_Controls(N:int)->None:
         pass
     elif N==2:
         pass
-    elif N==3:
+    elif N==4:
         Reset_Scores()
+    elif N==3:
+        List_Players()
     else:
         print("----I am to lazy to code edge cases right now----")
 
@@ -131,7 +161,8 @@ def Main():
 options = dict()
 options =   {1:"New Games",2:"See Scores",3:"Admin (Top-secrety stuff)",4:"Crawl under a rock for eternity"}
 Password = 3200
-Admin_options =   {1:"Sort By High scores",2:"Sort By Player Performance",3:"Reset Scores"}
+Admin_options =   {1:"Sort By High scores",2:"Sort By Player Performance",3:"List Players",4:"Reset Scores",}
+
 # This calls the main function indefinitely 
 while True:
     Main()
