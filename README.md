@@ -13,3 +13,4 @@ Sort_By_Players
 --General Coding--
 Loop the edge cases/invalid options ( try to use same function )
 Try to make text based ui slow and feel old
+Add ___ for Messages
