@@ -15,7 +15,7 @@ def Show_And_Get_Options(Current_Options:dict)->int:
             return A
         else:
             print("Well looks like you are one of those dumb users we have to be on the lookout for\n ")
-            print("CHOOSE A VALID OPTION")
+            print("----CHOOSE A VALID OPTION-----")
 
 def Read_Scores():
     # This function is to read the scores of the users stored in a text file named users_scores.txt
@@ -24,14 +24,20 @@ def Read_Scores():
     # This function checks for file path and reads scores from file path
     if (os.path.isfile("users.txt")):
             with open('users.txt') as f: 
-                for i in f:
-                    print(i)
+                # Loading the contents of the files into a list
+                Contents = f.readlines()
+                # Checking if there is anything in the file
+                if (len(Contents)!=0):
+                    for i in Contents:
+                        print(i)
+                else:
+                    print("\n ---Empty File--- \n")
             f.close()
     
 
     # If file does not exit , this else block creates a file and writes an empty message in it
     else:
-        print("Nothing Here yet folks")
+        print("------Nothing Here yet folks------")
         f= open("users.txt","w+")
         f.write("-------Nothing Here yet folks-------")
         f.close()
@@ -76,7 +82,7 @@ def Reset_Scores() ->None:
     f = open("users.txt","w")
     f.write("")
     f.close()
-    print("All data has been reset , have a nonconsequential day")
+    print("----All data has been reset , have a nonconsequential day-----")
     return None
     
 
@@ -90,7 +96,7 @@ def Routing_function_Admin_Controls(N:int)->None:
     elif N==3:
         Reset_Scores()
     else:
-        print("I am to lazy to code edge cases right now")
+        print("----I am to lazy to code edge cases right now----")
 
 def Routing_function(N:int)->None:
     # This function is to route the functions and the correct options 
@@ -106,12 +112,12 @@ def Routing_function(N:int)->None:
             Routing_function(Show_And_Get_Options(options))
         else:
             # This exits the program , thats it 
-            exit("Reality is often disappointing")
+            exit("-----Reality is often disappointing------")
 
 def Main():
     # This is the first function that gets called , it provides the options
 
-    print("Welcome to the most useless game you will ever get to play ")
+    print("Welcome to the most useless game you will ever get to play")
 
     print("Choose from our wide array of options")
     
