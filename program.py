@@ -55,6 +55,57 @@ def Check_Password():
                 # Locks the user/Dumb Admin in an infinite loop
                 print("are you sure you are supposed to be here")
 
+def List_HighScores()->None:
+    # This function is to list the highscores of those playing the game 
+
+    # Opening the file and loading all the text into a list
+    with open ("users.txt", "r") as f:
+        Text_Container = f.readlines()
+    
+    # Stripping the endline character
+    for i in range(len(Text_Container)):
+        Text_Container[i]=Text_Container[i].strip('\n')
+    
+    # Checking if any data has been entered in the file ( if the game has been played atleast once )
+    if len(Text_Container)<4:
+        print("\n---No Data has been entered----\n")
+        return None
+    
+    #Creating a new list with text starting from the 4th line of the text file
+    L =Text_Container[3:]
+    
+    # Initializing the list which is going to contain the player names
+    Player_Names = []
+    
+    # Initializing the list in which player scores are going
+    Player_Scores = []
+
+    # Using the split function to everyline into player name and scores , and appending player name to a new list
+    for i in range(len(L)):
+        Name_Score = L[i].split()
+        Player_Names.append(Name_Score[0])
+        Player_Scores.append(int(Name_Score[1]))
+
+
+    # Using Bubble sort to arrange scores in descending order
+    for i in range(len(Player_Scores)):
+        for j in range(len(Player_Scores)-1):
+            if Player_Scores[j]<Player_Scores[j+1]:
+                Player_Scores[j],Player_Scores[j+1] = Player_Scores[j+1] , Player_Scores[j]
+            # Swapping player names also so as no not get data mismatched
+                Player_Names[j],Player_Names[j+1] = Player_Names[j+1] , Player_Names[j]
+
+
+    # Printing the list (Player Names)
+    print("-----H-I-G-H-S-C-O-R-E-S-----\n")
+
+    for i in range(len(Player_Names)):
+        
+        print("     {}. {} : {}".format(i+1,Player_Names[i],Player_Scores[i]))
+
+        # This code breaks out of the loop if more 10 scores are already displayed
+        if i>8:
+            break
 
 def Admin_Controls():
     #This is the function for the admin controls
@@ -118,7 +169,7 @@ def List_Players():
 def Routing_function_Admin_Controls(N:int)->None:
     # This function is to route the functions and the correct options 
     if N==1:
-        pass
+        List_HighScores()
     elif N==2:
         pass
     elif N==4:
@@ -157,6 +208,7 @@ def Main():
 
     # Calls the routing function to get routed to the appropriate function
     Routing_function(N)
+
 
 options = dict()
 options =   {1:"New Games",2:"See Scores",3:"Admin (Top-secrety stuff)",4:"Crawl under a rock for eternity"}
