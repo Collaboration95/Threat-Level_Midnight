@@ -14,6 +14,7 @@ Sort_By_Players Have traces of basic idea of what to do
 Loop the edge cases/invalid options ( try to use same function )
 Try to make text based ui slow and feel old 
 Add ___ for Messagesw
-
+Change file path to a variable
+Function Location formatting
 
 Blah Blah Blah

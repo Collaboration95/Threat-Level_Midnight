@@ -1,4 +1,6 @@
 import time , os.path
+import os    
+
 def Show_And_Get_Options(Current_Options:dict)->int:
     # This functions accepts a dictionary of the available options and returns the integer (Key) of the option
     # This shows the different options and returns the "Chosen one"
@@ -21,25 +23,49 @@ def Read_Scores():
     # This function is to read the scores of the users stored in a text file named users_scores.txt
     #It is located under 2.0 in the menu
 
-    # This function checks for file path and reads scores from file path
-    if (os.path.isfile("users.txt")):
-            with open('users.txt') as f: 
-                # Loading the contents of the files into a list
-                Contents = f.readlines()
-                # Checking if there is anything in the file
-                if (len(Contents)!=0):
-                    for i in Contents:
-                        print(i)
-                else:
-                    print("\n ---Empty File--- \n")
-            f.close()
+    # This if block checks if path exists and that file is not empty
+    if (os.path.isfile("users.txt") and os.path.getsize("users.txt") > 0):
+            
+        with open('users.txt', "r") as f: 
+            # Loading the contents of the files into a list
+            Contents = f.readlines()
+    
+
+        Written_to_File = Contents
+        # Calling the games played function to find out number of lines  of user input data
+        Games_Played = No_Of_Players()
+        # Changing only the first line of the text file
+        Written_to_File[0] = "The number of games played is {} \n".format(Games_Played)
+
+        # Opening and updating textfile with new contents
+        f= open("users.txt","w+")
+        f.writelines(Written_to_File)
+        f.close()
+
+        # Somehow there exists a magical "\n" at the end of each line and the for loop also adds another endline , 
+        # to avoid that im stripping "\n"
+        for i in range(len(Contents)):
+            Contents[i]=Contents[i].strip('\n')
+        # Checking if there is anything in the file
+        
+
+        # Printing the contents of the file
+        if (len(Contents)!=0):
+            for i in Contents:
+                print(i)
+        else:
+            print("\n ---Empty File--- \n")
+            
     
 
     # If file does not exit , this else block creates a file and writes an empty message in it
     else:
         print("------Nothing Here yet folks------")
-        f= open("users.txt","w+")
-        f.write("-------Nothing Here yet folks-------")
+        f= open("users.txt","a")
+        f.write("-------Nothing Here yet folks-------\n")
+        f.write("\n")
+        f.write(" Users Scores")
+        
         f.close()
 
 def Check_Password():
@@ -208,7 +234,16 @@ def Main():
 
     # Calls the routing function to get routed to the appropriate function
     Routing_function(N)
-
+def No_Of_Players():
+    "This function is used to find the number of games played and is to be added to the first line of the text file"
+    with open ("users.txt", "r") as f:
+        Text_Container = f.readlines()
+    if (len(Text_Container)>4):
+        New_List = Text_Container[3:]
+    else:
+        return 0
+    No_of_games_played = len(New_List)
+    return No_of_games_played
 
 options = dict()
 options =   {1:"New Games",2:"See Scores",3:"Admin (Top-secrety stuff)",4:"Crawl under a rock for eternity"}
