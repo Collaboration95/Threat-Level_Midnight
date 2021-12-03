@@ -2,7 +2,7 @@
 Stuff to do 
 Test out the queston ideas ( dict into files)
 Plot out stuff needed for an admin user 
-
+Branch code and implement classes later (after finishing actual codey stuff)
 
 
 --Admin user stuff--
@@ -13,8 +13,11 @@ Sort_By_Players Have traces of basic idea of what to do
 --General Coding--
 Loop the edge cases/invalid options ( try to use same function )
 Try to make text based ui slow and feel old 
-Add ___ for Messagesw
-Change file path to a variable
-Function Location formatting
 
+Add ___ for Messagesw -->
+Function Location formatting
 Blah Blah Blah
+
+__Extra stuff
+Add \n in before and after messages to make it look good
+try to implement classes for variable storage

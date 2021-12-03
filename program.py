@@ -19,6 +19,39 @@ def Show_And_Get_Options(Current_Options:dict)->int:
             print("Well looks like you are one of those dumb users we have to be on the lookout for\n ")
             print("----CHOOSE A VALID OPTION-----")
 
+
+def Routing_function(N:int)->None:
+    # This function is to route the functions and the correct options 
+    if N==1:
+        print("Code under construction")
+    elif N==2:
+        Read_Scores()
+    elif N==3:
+        Admin_Controls()
+    else:
+        if(input("Enter anything if you do not want to exit this godawful game")):
+            # This line rescursively calls the routing function with the output of the Show_And_Get_Option function
+            Routing_function(Show_And_Get_Options(options))
+        else:
+            # This exits the program , thats it 
+            exit("-----Reality is often disappointing------")
+            
+
+def Routing_function_Admin_Controls(N:int)->None:
+    # This function is to route the functions and the correct options 
+    if N==1:
+        List_HighScores()
+    elif N==2:
+        Sort_By_Players()
+        pass
+    elif N==4:
+        Reset_Scores()
+    elif N==3:
+        List_Players()
+    else:
+        print("----I am to lazy to code edge cases right now----")
+
+
 def Read_Scores():
     # This function is to read the scores of the users stored in a text file named users_scores.txt
     #It is located under 2.0 in the menu
@@ -192,34 +225,65 @@ def List_Players():
     for i in range(len(Player_Names)):
         print("{} : {}".format(i+1,Player_Names[i]))
 
-def Routing_function_Admin_Controls(N:int)->None:
-    # This function is to route the functions and the correct options 
-    if N==1:
-        List_HighScores()
-    elif N==2:
-        pass
-    elif N==4:
-        Reset_Scores()
-    elif N==3:
-        List_Players()
-    else:
-        print("----I am to lazy to code edge cases right now----")
+def Sort_By_Players()->None:
+    # This function is to sort by player high_scores
+    with open (Scores_File_Path, "r") as f:
+        Text_Container = f.readlines()
 
-def Routing_function(N:int)->None:
-    # This function is to route the functions and the correct options 
-    if N==1:
-        print("Code under construction")
-    elif N==2:
-        Read_Scores()
-    elif N==3:
-        Admin_Controls()
-    else:
-        if(input("Enter anything if you do not want to exit this godawful game")):
-            # This line rescursively calls the routing function with the output of the Show_And_Get_Option function
-            Routing_function(Show_And_Get_Options(options))
-        else:
-            # This exits the program , thats it 
-            exit("-----Reality is often disappointing------")
+    # Stripping the elements of the list containg the txt file of "\n" cuz it causes annoying problems
+    for i in range(len(Text_Container)):
+        Text_Container[i]=Text_Container[i].strip('\n')
+
+    # Checking if any data has been entered ( Has the game been played ?)
+    if len(Text_Container)<4:
+        print("\n---Insufficient Data Entered----\n")
+        return None
+
+    # Stripping the list of first  3 lines now the list will contain only the Name Score pair
+    L =Text_Container[3:]
+    # Initializing the list which is going to contain the player names
+    Player_Names = []
+    Player_Scores = []
+
+    # Seperating the user name and scores into different lists
+    for i in range(len(L)):
+        Name_Score = L[i].split()
+        Player_Names.append(Name_Score[0])
+        Player_Scores.append(int(Name_Score[1]))
+    
+
+    # Finding the no of unique names in the list
+    Player_Names_Unique = list(set(Player_Names))
+
+    # Initializing a dictionary for storing player highscores
+    Player_High_Scores = dict()
+
+    # Loading the unique names into a dictionary with value pairs as 0 
+    for i in range(len(Player_Names_Unique)):
+        Player_High_Scores[Player_Names_Unique[i]] = 0
+
+    # Passing the empty base dict along with list of player names and scores to another function
+    Player_High_Scores = Set_Up_Dict(Player_High_Scores,Player_Names,Player_Scores)
+    
+    # printing the  highscore per player 
+    print("The High Scores for the players are:")
+    for key in Player_High_Scores:
+        print("{} {}".format(key , Player_High_Scores[key]))
+    pass
+
+def Set_Up_Dict(Set_Up_Player_High_Scores:dict, Set_Up_Player_Names:list,Set_Up_Player_Scores:list)->dict:
+    # Looping through each element of list player names and checking if the corresponding stored value in the dictionary is
+    #  greater than what matches is stored in the corresponding list which stores player's scores per game
+    # if you are little bit confused with the implementation of it , just let me know - Guru
+    for i in range(len(Set_Up_Player_Names)):
+            if Set_Up_Player_High_Scores[Set_Up_Player_Names[i]] < Set_Up_Player_Scores[i]:
+                Set_Up_Player_High_Scores[Set_Up_Player_Names[i]] =  Set_Up_Player_Scores[i]
+            else:
+                continue    
+    # returning the formatted dictionary
+    return Set_Up_Player_High_Scores
+
+
 
 def Main():
     # This is the first function that gets called , it provides the options
@@ -252,4 +316,4 @@ Admin_options =   {1:"Sort By High scores",2:"Sort By Player Performance",3:"Lis
 
 # This calls the main function indefinitely 
 while True:
-    Main()
+    Main() 
