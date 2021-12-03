@@ -24,9 +24,9 @@ def Read_Scores():
     #It is located under 2.0 in the menu
 
     # This if block checks if path exists and that file is not empty
-    if (os.path.isfile("users.txt") and os.path.getsize("users.txt") > 0):
+    if (os.path.isfile(Scores_File_Path) and os.path.getsize(Scores_File_Path) > 0):
             
-        with open('users.txt', "r") as f: 
+        with open(Scores_File_Path, "r") as f: 
             # Loading the contents of the files into a list
             Contents = f.readlines()
     
@@ -38,7 +38,7 @@ def Read_Scores():
         Written_to_File[0] = "The number of games played is {} \n".format(Games_Played)
 
         # Opening and updating textfile with new contents
-        f= open("users.txt","w+")
+        f= open(Scores_File_Path,"w+")
         f.writelines(Written_to_File)
         f.close()
 
@@ -61,7 +61,7 @@ def Read_Scores():
     # If file does not exit , this else block creates a file and writes an empty message in it
     else:
         print("------Nothing Here yet folks------")
-        f= open("users.txt","a")
+        f= open(Scores_File_Path,"a")
         f.write("-------Nothing Here yet folks-------\n")
         f.write("\n")
         f.write(" Users Scores")
@@ -85,7 +85,7 @@ def List_HighScores()->None:
     # This function is to list the highscores of those playing the game 
 
     # Opening the file and loading all the text into a list
-    with open ("users.txt", "r") as f:
+    with open (Scores_File_Path, "r") as f:
         Text_Container = f.readlines()
     
     # Stripping the endline character
@@ -156,7 +156,7 @@ def Reset_Scores() ->None:
     # This function is to reset scores of the game
     # The code opens the text file in which all the data is stored and writes an empty character instead of it 
     # Hence Clearing it
-    f = open("users.txt","w")
+    f = open(Scores_File_Path,"w")
     f.write("")
     f.close()
     print("----All data has been reset , have a nonconsequential day-----")
@@ -164,7 +164,7 @@ def Reset_Scores() ->None:
 
 def List_Players():
     # Opening the file and loading all the text into a list
-    with open ("users.txt", "r") as f:
+    with open (Scores_File_Path, "r") as f:
         Text_Container = f.readlines()
     # Stripping the endline character
     for i in range(len(Text_Container)):
@@ -236,7 +236,7 @@ def Main():
     Routing_function(N)
 def No_Of_Players():
     "This function is used to find the number of games played and is to be added to the first line of the text file"
-    with open ("users.txt", "r") as f:
+    with open (Scores_File_Path, "r") as f:
         Text_Container = f.readlines()
     if (len(Text_Container)>4):
         New_List = Text_Container[3:]
@@ -244,7 +244,7 @@ def No_Of_Players():
         return 0
     No_of_games_played = len(New_List)
     return No_of_games_played
-
+Scores_File_Path = "users.txt"
 options = dict()
 options =   {1:"New Games",2:"See Scores",3:"Admin (Top-secrety stuff)",4:"Crawl under a rock for eternity"}
 Password = 3200
