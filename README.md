@@ -1,23 +1,13 @@
-# Threat-Level_Midnight
-Stuff to do 
-Test out the queston ideas ( dict into files)
-Plot out stuff needed for an admin user 
-Branch code and implement classes later (after finishing actual codey stuff)
+# __Threat-Level_Midnight__
+| Stuff to do 
+| Branch code and implement classes later (after finishing actual codey stuff)
 
+# __General Coding__
+| Add the Tkinter Code and also add code to use the img_scr 
+| Try to make text based ui slow and feel old 
 
---Admin user stuff--
-2 functions 
-Sort_By_Highscores Done 
-Sort_By_Players Have traces of basic idea of what to do
-
---General Coding--
-Loop the edge cases/invalid options ( try to use same function )
-Try to make text based ui slow and feel old 
-
-Add ___ for Messagesw -->
-Function Location formatting
-Blah Blah Blah
-
-__Extra stuff
-Add \n in before and after messages to make it look good
-try to implement classes for variable storage
+# __Extra stuff__
+| Function Location formatting
+| try to implement classes for variable storage
+| Store Everything in proper files and stuff
+| Get a KeyBoard Interrrupt and wrong error type error message

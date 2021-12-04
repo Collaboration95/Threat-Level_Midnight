@@ -1,5 +1,4 @@
-import time , os.path
-import os    
+import time , os.path , random , os
 
 def Show_And_Get_Options(Current_Options:dict)->int:
     # This functions accepts a dictionary of the available options and returns the integer (Key) of the option
@@ -8,35 +7,35 @@ def Show_And_Get_Options(Current_Options:dict)->int:
         # This loops until the user selects a valid option or throws his system off a cliff
         for key in Current_Options:
             print("{} : {}".format(key , Current_Options[key]))
+        print("\n")
         # For loop to loop through the dictionary and display options
         A = int(input("Please choose an option") )
         # Takes an input for option
-        
+
         # checks if option is valid
         if A in Current_Options:
             return A
         else:
             print("Well looks like you are one of those dumb users we have to be on the lookout for\n ")
             print("----CHOOSE A VALID OPTION-----")
-
+            print("\n")
 
 def Routing_function(N:int)->None:
     # This function is to route the functions and the correct options 
     if N==1:
-        print("Code under construction")
+        The_Game_Setup()
     elif N==2:
         Read_Scores()
     elif N==3:
         Admin_Controls()
     else:
-        if(input("Enter anything if you do not want to exit this godawful game")):
+        if(input("Enter anything if you do not want to exit this godawful game : ")):
             # This line rescursively calls the routing function with the output of the Show_And_Get_Option function
             Routing_function(Show_And_Get_Options(options))
         else:
             # This exits the program , thats it 
-            exit("-----Reality is often disappointing------")
+            exit("\n-----Reality is often disappointing------\n")
             
-
 def Routing_function_Admin_Controls(N:int)->None:
     # This function is to route the functions and the correct options 
     if N==1:
@@ -48,9 +47,8 @@ def Routing_function_Admin_Controls(N:int)->None:
         Reset_Scores()
     elif N==3:
         List_Players()
-    else:
-        print("----I am to lazy to code edge cases right now----")
-
+    # else:
+    #     print("\n----I am to lazy to code edge cases right now----\n")
 
 def Read_Scores():
     # This function is to read the scores of the users stored in a text file named users_scores.txt
@@ -66,7 +64,7 @@ def Read_Scores():
 
         Written_to_File = Contents
         # Calling the games played function to find out number of lines  of user input data
-        Games_Played = No_Of_Players()
+        Games_Played = No_Of_Games_Played()
         # Changing only the first line of the text file
         Written_to_File[0] = "The number of games played is {} \n".format(Games_Played)
 
@@ -93,14 +91,23 @@ def Read_Scores():
 
     # If file does not exit , this else block creates a file and writes an empty message in it
     else:
-        print("------Nothing Here yet folks------")
+        
+        print("\n------Nothing Here yet folks------\n")
         f= open(Scores_File_Path,"a")
         f.write("-------Nothing Here yet folks-------\n")
         f.write("\n")
         f.write(" Users Scores")
-        
+        f.close()
+def Special_Modify_Scores():
+    # After Reset Scores(), this function is used to fill the first 3 lines of the txt files again
+    if (os.path.isfile(Scores_File_Path) or os.path.getsize(Scores_File_Path) <2):
+        f= open(Scores_File_Path,"a")
+        f.write("-------Nothing Here yet folks-------\n")
+        f.write("\n")
+        f.write(" Users Scores")
         f.close()
 
+    pass
 def Check_Password():
     # The Below block of code checks for the correct password and locks the user  
     # if password is twice in a row
@@ -112,7 +119,7 @@ def Check_Password():
         if (k!=Password):
             while True:
                 # Locks the user/Dumb Admin in an infinite loop
-                print("are you sure you are supposed to be here")
+                print("\nare you sure you are supposed to be here\n")
 
 def List_HighScores()->None:
     # This function is to list the highscores of those playing the game 
@@ -156,12 +163,10 @@ def List_HighScores()->None:
 
 
     # Printing the list (Player Names)
-    print("-----H-I-G-H-S-C-O-R-E-S-----\n")
+    print("\n-----H-I-G-H-S-C-O-R-E-S-----\n")
 
     for i in range(len(Player_Names)):
-        
         print("     {}. {} : {}".format(i+1,Player_Names[i],Player_Scores[i]))
-
         # This code breaks out of the loop if more 10 scores are already displayed
         if i>8:
             break
@@ -172,7 +177,7 @@ def Admin_Controls():
     # This function checks the password ( Only admins are allowed to access this )
     Check_Password()
 
-    print("Now you have root access , which in this case gives you access to a wide variety of admin only tools like the illusion of choice")
+    print("\nNow you have root access , which in this case gives you the  illusion of choice\n")
     
     # Notes by the programmer to the programmer:
     # Create a function to rank players by their highscores
@@ -192,7 +197,11 @@ def Reset_Scores() ->None:
     f = open(Scores_File_Path,"w")
     f.write("")
     f.close()
-    print("----All data has been reset , have a nonconsequential day-----")
+    print("\n----All data has been reset , have a nonconsequential day-----\n")
+
+    # This function is used after reset scores to intialize the txt file again
+    Special_Modify_Scores()
+
     return None    
 
 def List_Players():
@@ -219,7 +228,7 @@ def List_Players():
     Player_Names = list(set(Player_Names))
 
     # finding no of players by the length of the list 
-    print("The number of players is {}".format(len(Player_Names)))
+    print("\nThe number of players is {}\n".format(len(Player_Names)))
     # Printing the list (Player Names)
     print("The players are:")
     for i in range(len(Player_Names)):
@@ -266,7 +275,7 @@ def Sort_By_Players()->None:
     Player_High_Scores = Set_Up_Dict(Player_High_Scores,Player_Names,Player_Scores)
     
     # printing the  highscore per player 
-    print("The High Scores for the players are:")
+    print("\nThe High Scores for the players are :\n")
     for key in Player_High_Scores:
         print("{} {}".format(key , Player_High_Scores[key]))
     pass
@@ -283,7 +292,102 @@ def Set_Up_Dict(Set_Up_Player_High_Scores:dict, Set_Up_Player_Names:list,Set_Up_
     # returning the formatted dictionary
     return Set_Up_Player_High_Scores
 
+def The_Game_Setup():
+    # You have finally arrived at the main function that plays the game 
 
+    # Loading the accepted input into a list 
+    Accepted_Inputs = ("yes","y","iamalooser")
+    # Asking for an input
+    Continue_Prompt = input("Please Enter Y/y/yes/iamalooser if you want to play the game")
+    # Checking if the entered prompt is not present in the list , if not present the user is kicked out of the function again
+
+    if (Continue_Prompt.lower() not in Accepted_Inputs):
+        print("Don't have a good day , have a great day")
+        return None
+
+    User_Name =  input("Please Input your name")
+    with open (Questions_File_Path, "r") as f:
+        Text_Container = f.readlines()
+        
+    # Stripping the endline character
+    for i in range(len(Text_Container)):
+        Text_Container[i]=Text_Container[i].strip('\n')
+ 
+    # using list comprehension to remove the first empty line from the list
+    Formatted = [x for x in Text_Container if x]
+
+    # Loading the elements of the list into elements of a dictionary which will be elements of a list
+    Questions_List = []
+    DictionaryLoader = dict()
+    for i in range(0,len(Formatted),7):
+        DictionaryLoader["Q"] = Formatted[i]
+        DictionaryLoader["Options"] = Formatted[i+1:i+5]
+        DictionaryLoader["AnswerKey"] = Formatted[i+5]
+        DictionaryLoader["Points"] = int(Formatted[i+6])
+        # .copy() is used to dereference the dict pointer , this loads the dict variables into a list  
+        Questions_List.append(DictionaryLoader.copy())
+    # Questions_List is a list containing dictionaries as its elements  , which contain questions , options etc
+    
+    # Shuffles the  list containing the questions
+    random.shuffle(Questions_List)
+    
+    # Calling the Game session function to 
+    Game_Session(Questions_List,User_Name)
+
+def Game_Session(Q_list:list,User_name:str):
+    # This function contains all the game logic that needs to be run for each game session\
+    # Asking No of question for the input
+    No_Of_Q = int(input("Enter a number below {} for the number of questions you want to play".format(len(Q_list))))
+    # Using the while loop to enforce no of questions less than total no of questions
+
+    while (No_Of_Q>len(Q_list)):
+        No_Of_Q = int(input("Enter a number below {} for the number of questions you want to play".format(len(Q_list))))
+
+    User_Score = 0
+
+    # for i in range(0,No_Of_Q):
+    #     print(i)
+        # print(Q_list[i])
+    for i in range(No_Of_Q):
+
+        # Printing the Question
+        print(Q_list[i]["Q"])
+
+        # Loading the options into a list
+        Options_list_temp = Q_list[i]["Options"]
+        
+        # printing the options
+        for j  in range(len(Options_list_temp)):
+            print(Options_list_temp[j]) 
+
+        
+        Ans = input("Please Enter Your answer")
+        if Ans == Q_list[i]["AnswerKey"]:
+            User_Score+=Q_list[i]["Points"]
+            print("\nYou got it right\n")
+    # Getting a normalized function of the score
+    User_Score = Normalized_Score(User_Score,No_Of_Q)
+    print("You have got {} points !".format(User_Score))
+
+    # Calling function write_scores to display 
+    Write_Scores(User_name, User_Score)
+
+def Write_Scores(UserName,UserScore)->None:
+    # "This function is to save scores to file"
+    with open (Scores_File_Path,"a") as f:
+        String_Written = "{} {}".format(UserName,UserScore)
+        f.write("\n")
+        f.write(String_Written)
+
+    return None
+
+def Normalized_Score(Score:int,No_of_Q:int)->int:
+    # Since iam an idiot who makes stuff harder than it has to be , i am adding useless functionality to the thing
+    # This function is to normalize the scores since different players might play different amount of games
+
+    # Im bad at math , using basic average and multiplying by 10 to get normalized score of everyone
+    Normal_Score = int(round(10*(Score/No_of_Q),0))
+    return Normal_Score
 
 def Main():
     # This is the first function that gets called , it provides the options
@@ -298,16 +402,19 @@ def Main():
 
     # Calls the routing function to get routed to the appropriate function
     Routing_function(N)
-def No_Of_Players():
-    "This function is used to find the number of games played and is to be added to the first line of the text file"
+
+def No_Of_Games_Played():
+    # "This function is used to find the number of games played and is to be added to the first line of the text file"
     with open (Scores_File_Path, "r") as f:
         Text_Container = f.readlines()
-    if (len(Text_Container)>4):
+    if (len(Text_Container)>3):
         New_List = Text_Container[3:]
     else:
         return 0
     No_of_games_played = len(New_List)
     return No_of_games_played
+
+Questions_File_Path = "Questions.txt"    
 Scores_File_Path = "users.txt"
 options = dict()
 options =   {1:"New Games",2:"See Scores",3:"Admin (Top-secrety stuff)",4:"Crawl under a rock for eternity"}
