@@ -1,0 +1,5 @@
+The number of games played is 1 
+
+Users Scores
+G 10
+G 0
