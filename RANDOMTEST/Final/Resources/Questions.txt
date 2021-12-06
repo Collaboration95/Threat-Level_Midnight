@@ -1,0 +1,359 @@
+Where is the Amazon river located 
+Argentina 
+Brazil
+Puerto Rico
+Bolivia
+Brazil
+1
+DoesNotExist
+
+Chile’s capital 
+Santiago
+Barcelona
+Bogota
+Rio De Janiro
+Santiago
+3
+DoesNotExist
+
+Which country flag is this? 
+Ecuador
+Brazil
+Colombia
+Peru
+Brazil
+1
+Final/img/brazil_flag_Q3.png
+
+Oldest Civilization in South America found in which country
+Uruguay
+Aruba
+Peru
+Chile
+Peru
+3
+DoesNotExist
+
+Atacama desert located where 
+Peru
+Guyana
+Ecuador
+Venezuela
+Peru
+2
+DoesNotExist
+
+Whose flag is this 
+Bolivia
+Chile
+Suriname
+Trinidad and Tobago
+Bolivia
+1
+Final/img/bolivia_flag_Q6.png
+
+Lima is the capital of which country
+Brazil
+Suriname
+Ecuador
+Peru
+Peru
+2
+DoesNotExist
+
+Where is São Paulo located 
+USA
+Brazil
+Chile
+Argentina
+Brazil
+2
+DoesNotExist
+
+Quito is the capital of
+Puerto Rico
+Vegas
+Ecuador
+Mexico
+Ecuador
+3
+DoesNotExist
+
+Country Neighbouring to Colombia
+Venezuela
+Uruguay
+Argentina
+Aruba
+Venezuela
+3
+DoesNotExist
+
+Which country's flag is this?
+Sealand
+Iceland
+England
+Greenland
+Sealand
+2
+Final/img/1280px-Flag_of_Sealand.svg.png
+
+Which country's flag is this?
+France
+Yugoslavia
+Wales
+Spain
+Wales
+2
+Final/img/Flag_of_Wales.svg.png
+
+What mounment is this and where is it located?
+Notre Dame, Paris
+Brandenburg Gate, Berlin
+Stonehenge, Salisbury
+Kremlin, Moscow
+Brandenburg Gate, Berlin
+3
+Final/img/1280px-Brandenburger_Tor_abends.png
+
+What is the largest mountain range in Europe?
+Pyrenees
+Carpathian
+Caucasus
+Alps
+Alps
+3
+DoesNotExist
+
+What is the capital of Russia in 2021?
+St'Petersburg
+Stalingrad
+Moscow
+Volvograd
+Moscow
+1
+DoesNotExist
+
+Which country's flag is this?
+Bosnia and Herzegovina
+Serbia
+Turkey
+Croatia
+Bosnia and Herzegovina
+2
+Final/img/1920px-Flag_of_Bosnia_and_Herzegovina.svg.png
+
+Is this flag still in use in Europe?
+Yes.
+No, and never has been used.
+No, but was used in the past.
+No, it is a flag on another continent.
+No, but was used in the past.
+3
+Final/img/Flag_of_Yugoslavia_(1946-1992).svg.png
+
+Which nation/country that exixts today is the oldest in Europe?
+Italy
+France
+The United Kingdom
+Bulgaria
+Bulgaria
+3
+DoesNotExist
+
+Which nation controlled 24% of Earth's land area in 1920?
+The United Kingdom
+Great Britain
+France
+Russia
+Great Britain
+3
+DoesNotExist
+
+Which Eurpoean nation has disputed territories with Canada?
+Sealand
+Denmark
+Sweeden
+The Kingdom of Lappland
+Denmark
+3
+DoesNotExist
+
+Number of Countries in North America
+11
+17
+23
+26
+23
+3
+DoesNotExist
+
+Name of Country with highest natural disaster risk, as measured in World Risk Index(based on exposure and vulnerability of country)?
+The Bahamas
+Canada
+Costa Rica 
+Cuba
+Costa Rica
+3
+DoesNotExist
+
+Country with largest population in North America(as of 2018)?
+Costa Rica
+United States of America
+Mexico 
+Honduras
+United States of America
+1
+DoesNotExist
+
+Biggest land area in North America?
+Canada
+Panama
+Puerto Rico
+United States of America
+Canada
+2
+DoesNotExist
+
+In the colonial era, which country was called New Spain?
+Puerto Rico 
+Costa rica
+Mexico
+Trinidad and Tobago
+Mexico
+2
+DoesNotExist
+
+What is the second most spoken language in North America?
+English
+Spanish
+Chinese
+French 
+Spanish
+2
+DoesNotExist
+
+Name of Sea
+Mediterranean Sea
+South China Sea 
+Yellow Sea
+Caribbean Sea
+Caribbean Sea
+2
+Final/img/Sea.png
+
+Name of Country
+Cuba 
+Puerto Rico
+Panama 
+San Andrés and Providencia
+Panama
+2
+Final/img/Country.png
+
+Which country has a capital city named 'Havan'?
+Cuba 
+Mexico 
+Trinidad and Tobago 
+Panama
+Cuba
+2
+DoesNotExist
+
+Where does North America Place in the size of continents?
+First
+Second
+Third
+Fourth
+Third
+2
+DoesNotExist
+
+Name of country
+Angola
+Rwanda
+Somalia
+Egypt
+Angola
+2
+Final/img/188px-Flag_of_Angola.svg.png
+
+Name of country
+Nigeria
+Ghana
+Rwanda
+Tanzania
+Rwanda
+2
+Final/img/188px-Flag_of_Rwanda.svg.png
+
+Name of country
+Morocco
+Ethiopia
+Sudan
+Kenya
+Ethiopia
+2
+Final/img/Flag_of_Ethiopia.svg.png
+
+Name of country
+Rwanda
+Kenya
+Angola
+Somalia
+Somalia
+2
+Final/img/Flag_of_Somalia.svg.png
+
+Name of country
+Tunisia
+Rwanda
+Nigeria
+Tanzania
+Tunisia
+2
+Final/img/Flag_of_Tunisia.svg.png
+
+Where is this located? (Great Pyramid of Giza)
+Nigeria
+Egypt
+Sudan
+Ethiopia
+Egypt
+2
+Final/img/Great Pyramid of Giza.png
+
+Where is this located? (Mount Kilimanjaro)
+Senagal
+Mali
+Tanzania
+Zimbabwe
+Tanzania
+3
+Final/img/Mount_Kilimanjaro.png
+
+Where is this located? (Victoria Falls)
+Zimbabwe
+Tunisia
+Ethiopia
+Nigeria
+Zimbabwe
+3
+Final/img/360px-Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_06.png
+
+Where is this located? (Tabel Mountain)
+Egypt
+South Africa
+Somalia
+Ghanda
+South Africa
+3
+Final/img/Tabel Mountain.png
+
+Where is this located? (African Renaissance Monument)
+Egypt
+Tanzania
+Madagascar
+Senegal
+Senegal
+3
+Final/img/The_African_Renaissance_Monument_.png
