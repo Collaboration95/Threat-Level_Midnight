@@ -1,5 +1,6 @@
-The number of games played is 1 
+The number of games played is 3 
 
 Users Scores
 G 10
 G 0
+guru 0

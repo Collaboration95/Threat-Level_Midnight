@@ -366,30 +366,36 @@ def Game_Session(Q_list:list,User_name:str):
         
         
         # checks if the file path exists
-        # Ans = input("Please Enter Your answer")
-        print("Please Enter your answer")
+       
+    
         if (os.path.isfile(Q_list[i]["File_Path"])):
             # Tkinter has this awesome feature where you cannot automatically close the windows with a timer , time.sleep() freezes the whole program 
-            # so I am adding a button to close it and this is just a prompt to remind the user
-            print("\n--Reminder: Close the previous window to see the new image--\n")
+  
             # This is the code for presenting the image 
             root = Tk()
-
+            # this code basically calls the a function that i found on the internet to find the image size 
             ImageSize = [0,0]
-            ImageSize[0] , ImageSize[1]= get_image_size(Q_list[i]["File_Path"])   
+            ImageSize[0] , ImageSize[1]= get_image_size(Q_list[i]["File_Path"])
+
+            # Creating a "canvas"   
             canv = Canvas(root, width=ImageSize[0], height=ImageSize[1], bg='white')
             canv.pack()
+            # Variable for the image
             img = PhotoImage(file=Q_list[i]["File_Path"])
+            
+            # Allocating the image in the canvas and anchoring it to the top left
             canv.create_image(0,0, anchor="nw", image=img)
-            MyButton = Button(root,text="Close Window",command=root.destroy)
+
+            # Creating a button to ease the closing of the function
+            MyButton = Button(root,text="Close Window Before Entering Input",command=root.destroy)
             MyButton.pack()
 
             # basically like an even listener ( a program constantly running in the background waiting for button clicks and stuff)
             root.mainloop()
         else:
-            print(Q_list[i]["File_Path"])
+            print("\n Oh No ! , there is no image for this question\n")
 
-        Ans = input()
+        Ans = input("Please Enter Your answer")
         if Ans == Q_list[i]["AnswerKey"]:
             User_Score+=Q_list[i]["Points"]
             print("\nYou got it right\n")
