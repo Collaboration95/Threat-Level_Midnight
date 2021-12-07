@@ -1,3 +1,11 @@
 The number of games played is 0 
 
  Users Scores
+G 23
+B 235
+k 32
+N 88
+G 22
+B 12
+C 323
+K 023
